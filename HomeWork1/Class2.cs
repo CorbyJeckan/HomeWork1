@@ -11,12 +11,13 @@ namespace HomeWork1
     //Так же сделать через цикл.
     internal class Fibonachi
     {
-        static int Fibonacci(int i)
+        static public int Fibonacci(int i)
         {
+
             if (i == 0 || i == 1) return i;
             int x = Fibonacci(i - 1) + Fibonacci(i - 2);
-            Console.WriteLine(x);
             return x;
+
         }
 
         static public void Fibonaccirdy(string[] args)
@@ -26,6 +27,7 @@ namespace HomeWork1
             string choice = (Console.ReadLine());
             Console.WriteLine("До какого числа выводить значения Фибоначчи? ");
             int number = int.Parse(Console.ReadLine());
+
             switch (choice)
             {
 
@@ -33,7 +35,8 @@ namespace HomeWork1
                     {
                         if (number <= 15)
                         {
-                            Fibonacci(number);
+                            for (int i = 0; i < number; i++)
+                                Console.WriteLine(Fibonacci(i));
                         }
                         else
                         {
@@ -45,21 +48,18 @@ namespace HomeWork1
 
                 case "Нет":
                     {
-
-                        int perv = 1;
-                        Console.WriteLine("{0} ", perv);
-                        int vtor = 1;
-                        Console.WriteLine("{0} ", vtor);
-                        int sum = 0;
-
-                        while (number >= sum)
+                        //Fn = Fn-1 + Fn-2      0, 1, 1, 2, 3, 5, 8, 13, 21, 34
+                        int fib0 = 0;
+                        int fib1 = 1;
+                        int fib2;
+                        Console.WriteLine(fib0);
+                        Console.WriteLine(fib1);
+                        for (int i = 3; i <= number; i++)
                         {
-                            sum = perv + vtor;
-
-                            Console.WriteLine("{0} ", sum);
-
-                            perv = vtor;
-                            vtor = sum;
+                            fib2 = fib0 + fib1;
+                            Console.WriteLine(fib2);
+                            fib0 = fib1;
+                            fib1 = fib2;
                         }
                     }
                     break;
